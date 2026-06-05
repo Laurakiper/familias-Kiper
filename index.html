@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Familias Kiper · Convocatoria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --teal: #3ABFAA;
+    --teal-dark: #1A8070;
+    --teal-deep: #136257;
+    --dark: #21222B;
+    --muted: #6B6F76;
+    --bg: #FFFFFF;
+    --sand: #F0EDE6;
+    --soft: #F4F8F7;
+    --mint-light: #E4F3EE;
+    --blush: #F2C4CE;
+    --peach: #F5C49A;
+    --border: #ECEEEE;
+    --font: 'Plus Jakarta Sans', Arial, sans-serif;
+    --shadow-sm: 0 2px 10px rgba(33,34,43,0.06);
+    --shadow-md: 0 12px 36px rgba(33,34,43,0.10);
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--dark);
+    line-height: 1.65;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(240,237,230,0.86); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 26px; display: flex; align-items: center; gap: 22px; height: 64px;
+  }
+  nav .logo { height: 28px; width: auto; display: block; margin-right: auto; }
+  nav .nav-link { font-size: 14px; font-weight: 600; color: var(--dark); text-decoration: none; opacity: .7; transition: opacity .15s; }
+  nav .nav-link:hover { opacity: 1; }
+  .nav-cta {
+    font-size: 14px; font-weight: 700; color: #fff; background: var(--dark);
+    padding: 10px 18px; border-radius: 12px; text-decoration: none;
+    transition: transform .15s ease, box-shadow .15s;
+  }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(33,34,43,.28); }
+
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 26px; }
+
+  /* HERO */
+  .hero { padding: 70px 0 60px; background: var(--sand); }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
+  .proof { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+  .avatars { display: flex; }
+  .avatars img {
+    width: 38px; height: 38px; border-radius: 50%; object-fit: cover;
+    border: 2.5px solid #fff; margin-left: -10px; box-shadow: var(--shadow-sm);
+  }
+  .avatars img:first-child { margin-left: 0; }
+  .proof-text { font-size: 13.5px; font-weight: 600; color: var(--muted); line-height: 1.35; }
+  .proof-text strong { color: var(--dark); font-weight: 800; }
+  .hero h1 {
+    font-size: 52px; font-weight: 800; line-height: 1.06; letter-spacing: -1.4px;
+    margin-bottom: 20px;
+  }
+  .hero h1 span { color: var(--teal); }
+  .hero p { font-size: 18px; color: var(--muted); max-width: 480px; margin-bottom: 30px; }
+  .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+
+  .btn {
+    font-family: var(--font); font-size: 16px; font-weight: 700;
+    padding: 16px 32px; border-radius: 18px; border: none; cursor: pointer;
+    background: var(--dark); color: #fff; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 12px;
+    transition: transform .15s ease, box-shadow .15s, background .15s;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(33,34,43,.26); background: #2D2E3A; }
+  .btn:disabled { opacity: .55; cursor: not-allowed; transform: none; box-shadow: none; }
+  .btn .arrow { font-size: 18px; line-height: 1; transition: transform .15s ease; }
+  .btn:hover .arrow { transform: translateX(4px); }
+
+  .hero-media { position: relative; }
+  .hero-media img {
+    width: 100%; height: auto; display: block; border-radius: 26px;
+    box-shadow: var(--shadow-md); object-fit: cover;
+  }
+  .hero-badge {
+    position: absolute; bottom: 22px; left: -18px; background: #fff;
+    border-radius: 16px; padding: 13px 18px; box-shadow: var(--shadow-md);
+    display: flex; align-items: center; gap: 11px; max-width: 250px;
+  }
+  .hero-badge .dot { width: 38px; height: 38px; border-radius: 12px; background: var(--mint-light); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .hero-badge p { font-size: 13px; font-weight: 600; color: var(--dark); line-height: 1.35; margin: 0; max-width: none; }
+
+  /* VALUE STRIP */
+  .values { background: var(--soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .values-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; padding: 36px 0; }
+  .value { display: flex; align-items: center; gap: 13px; }
+  .value .vdot { width: 42px; height: 42px; border-radius: 12px; background: var(--mint-light); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+  .value span { font-size: 15px; font-weight: 700; color: var(--dark); line-height: 1.3; }
+
+  /* SECTION */
+  section { padding: 72px 0; }
+  .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 10px; }
+  .h2 { font-size: 34px; font-weight: 800; letter-spacing: -0.8px; margin-bottom: 12px; }
+  .lead { font-size: 17px; color: var(--muted); max-width: 540px; }
+
+  .steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 40px; }
+  .step {
+    background: #fff; border: 1px solid var(--border); border-radius: 20px;
+    padding: 26px; box-shadow: var(--shadow-sm);
+  }
+  .step .num { width: 38px; height: 38px; border-radius: 11px; background: var(--mint-light); color: var(--teal-deep); font-weight: 800; font-size: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+  .step h3 { font-size: 16px; font-weight: 700; margin-bottom: 7px; }
+  .step p { font-size: 14px; color: var(--muted); line-height: 1.55; }
+
+  /* DEAL */
+  .deal-section { padding: 0 0 12px; }
+  .deal {
+    background: var(--teal); border-radius: 24px; padding: 40px 44px;
+    position: relative; overflow: hidden;
+  }
+  .deal::before { content: ''; position: absolute; right: -40px; top: -40px; width: 180px; height: 180px; border-radius: 50%; background: rgba(255,255,255,.10); }
+  .deal::after { content: ''; position: absolute; right: 70px; bottom: -50px; width: 120px; height: 120px; border-radius: 50%; background: rgba(255,255,255,.08); }
+  .deal .eyebrow { color: rgba(255,255,255,.8); position: relative; z-index: 2; }
+  .deal h2 { font-size: 28px; font-weight: 800; color: #fff; line-height: 1.25; max-width: 640px; position: relative; z-index: 2; letter-spacing: -0.5px; }
+  .deal h2 strong { font-weight: 800; border-bottom: 3px solid rgba(255,255,255,.5); }
+
+  /* FORM */
+  .form-section { background: var(--soft); border-top: 1px solid var(--border); }
+  .form-head { text-align: center; margin-bottom: 36px; }
+  .form-head .lead { margin: 0 auto; }
+  .form-card {
+    background: #fff; border: 1px solid var(--border); border-radius: 24px;
+    padding: 40px; box-shadow: var(--shadow-md); max-width: 620px; margin: 0 auto;
+  }
+  .field { margin-bottom: 20px; }
+  .field label { display: block; font-size: 14px; font-weight: 700; margin-bottom: 8px; }
+  .field .hint { font-weight: 500; color: var(--muted); }
+  .field input[type=text], .field textarea, .field select {
+    width: 100%; font-family: var(--font); font-size: 15px; color: var(--dark);
+    background: var(--soft); border: 1.5px solid var(--border); border-radius: 13px;
+    padding: 13px 15px; transition: border-color .15s, box-shadow .15s;
+  }
+  .field textarea { resize: vertical; min-height: 88px; line-height: 1.5; }
+  .field input:focus, .field textarea:focus, .field select:focus {
+    outline: none; border-color: var(--teal); box-shadow: 0 0 0 3px rgba(58,191,170,.16);
+  }
+
+  .uploader {
+    border: 2px dashed #BFD8D0; border-radius: 16px; padding: 28px 20px; text-align: center;
+    cursor: pointer; transition: border-color .15s, background .15s; background: var(--mint-light);
+  }
+  .uploader:hover { border-color: var(--teal); }
+  .uploader.has-file { border-style: solid; border-color: var(--teal); background: #fff; }
+  .uploader-icon { font-size: 26px; margin-bottom: 8px; }
+  .uploader-main { font-size: 14px; font-weight: 700; color: var(--teal-deep); }
+  .uploader-sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .uploader-file { font-size: 13px; font-weight: 700; color: var(--dark); }
+  #videoInput { display: none; }
+
+  .video-guide { background: var(--mint-light); border-radius: 14px; padding: 16px 18px; margin-top: 12px; }
+  .video-guide-label { font-size: 12px; font-weight: 700; color: var(--teal-deep); margin-bottom: 6px; }
+  .video-guide p { font-size: 13px; color: var(--muted); line-height: 1.55; }
+  .video-guide-quote {
+    font-style: italic; color: var(--dark);
+    border-left: 3px solid var(--teal); padding-left: 12px; margin: 8px 0; font-weight: 500;
+  }
+
+  .consent { display: flex; gap: 11px; align-items: flex-start; margin: 6px 0 24px; }
+  .consent input { margin-top: 4px; width: 17px; height: 17px; accent-color: var(--teal); flex-shrink: 0; }
+  .consent label { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+
+  .submit-wrap { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .submit-wrap .btn { width: 100%; justify-content: center; }
+  .form-msg { font-size: 13px; font-weight: 600; width: 100%; }
+  .form-msg.err { color: #C0533F; }
+  .form-msg.ok { color: var(--teal-deep); }
+
+  .spinner { width: 15px; height: 15px; border: 2px solid rgba(255,255,255,.4); border-top-color: #fff; border-radius: 50%; display: inline-block; vertical-align: -2px; margin-right: 7px; animation: spin .7s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .wa-help { font-size: 13px; color: var(--muted); margin-top: 18px; line-height: 1.5; text-align: center; }
+  .wa-help a { color: var(--teal-deep); font-weight: 700; text-decoration: none; }
+  .wa-help a:hover { text-decoration: underline; }
+
+  .config-warn { background: #FDE9D4; border: 1px solid var(--peach); border-radius: 12px; padding: 12px 16px; font-size: 13px; color: #8a5a20; margin-bottom: 22px; line-height: 1.5; }
+
+  .thanks { text-align: center; padding: 24px 10px; }
+  .thanks .heart { font-size: 44px; margin-bottom: 14px; }
+  .thanks h2 { font-size: 28px; font-weight: 800; margin-bottom: 10px; }
+  .thanks h2 span { color: var(--teal); }
+  .thanks p { font-size: 16px; color: var(--muted); max-width: 420px; margin: 0 auto; }
+
+  footer { background: var(--dark); color: #fff; padding: 40px 0; }
+  .footer-grid { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+  footer img { height: 24px; }
+  footer .f-right { display: flex; align-items: center; gap: 20px; }
+  footer a { color: rgba(255,255,255,.75); font-size: 13px; font-weight: 600; text-decoration: none; }
+  footer a:hover { color: #fff; }
+  footer .tagline { font-size: 13px; color: rgba(255,255,255,.55); }
+
+  .reveal { opacity: 0; transform: translateY(16px); animation: rise .6s ease-out forwards; }
+  .reveal:nth-child(2) { animation-delay: .08s; }
+  .reveal:nth-child(3) { animation-delay: .16s; }
+  .reveal:nth-child(4) { animation-delay: .24s; }
+  @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width: 820px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+    .hero h1 { font-size: 40px; }
+    .values-grid { grid-template-columns: 1fr; gap: 18px; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .h2 { font-size: 28px; }
+    .deal { padding: 30px 26px; }
+    .deal h2 { font-size: 22px; }
+    .form-card { padding: 26px; }
+    nav .nav-link { display: none; }
+  }
+</style>
+</head>
+<body>
+
+  <nav>
+    <img class="logo" src="https://cdn.shopify.com/s/files/1/0682/8110/6606/files/Logo_Kiper_para_fondo_claro_letra_oscura.png?v=1775568205" alt="Kiper">
+    <a class="nav-link" href="https://kipertienda.com/products/kiper-reloj-inteligente" target="_blank" rel="noopener">Conocer el Kiper</a>
+    <a class="nav-cta" href="#postular">Postularme</a>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="proof reveal">
+          <div class="avatars">
+            <img src="https://cdn.instant.so/sites/gkKOm0xG1DijqPo6/assets/WKgZSyh1PFt9J27B/review-1.jpg?width=160" alt="">
+            <img src="https://cdn.instant.so/sites/gkKOm0xG1DijqPo6/assets/bCzcqrp8A5B6bRad/review-3.jpg?width=160" alt="">
+            <img src="https://cdn.instant.so/sites/gkKOm0xG1DijqPo6/assets/WpZ5oyAsY5sF4wbW/seleccionado-mayo-13-2026-200117.png?width=160" alt="">
+          </div>
+          <div class="proof-text"><strong>+3.000 familias</strong> ya eligieron estar cerca, distinto.</div>
+        </div>
+        <h1 class="reveal">Queremos familias que sueñan con <span>un Kiper</span> en casa.</h1>
+        <p class="reveal">Si quieres el tuyo para tu hijo y te animas a contar su historia con nosotros, esto es para ti. Te acompañamos en cada paso.</p>
+        <div class="hero-actions reveal">
+          <a class="btn" href="#postular">Quiero nuestro Kiper <span class="arrow">→</span></a>
+        </div>
+      </div>
+      <div class="hero-media reveal">
+        <img src="https://cdn.shopify.com/s/files/1/0682/8110/6606/files/ChatGPT_Image_15_may_2026_08_13_30_a.m..png?v=1779379987" alt="Una familia con su Kiper">
+        <div class="hero-badge">
+          <div class="dot">💛</div>
+          <p>Cada llamada suya es un momento tuyo.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- STEPS -->
+  <section>
+    <div class="wrap">
+      <div class="eyebrow">Cómo funciona</div>
+      <div class="h2">Tres pasos, sin vueltas</div>
+      <p class="lead">Nos cuentas su historia, te elegimos y te acompañamos para grabar. Así de simple.</p>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="num">1</div>
+          <h3>Cuéntanos de ustedes</h3>
+          <p>Llena el formulario y déjanos un video corto para conocerte. Como estás, sin producción.</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h3>Te elegimos</h3>
+          <p>Escogemos unas pocas familias y te enviamos tu Kiper a casa. Sin costo.</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h3>Comparten su historia</h3>
+          <p>Te enviamos instrucciones y una guía de qué grabar. Tranquilo, te acompañamos en cada paso.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEAL -->
+  <div class="deal-section">
+    <div class="wrap">
+      <div class="deal">
+        <div class="eyebrow">Un intercambio entre iguales</div>
+        <h2>El Kiper es tuyo. <strong>A cambio compartes tu historia real</strong> — la de un papá que eligió estar cerca sin darle un celular a su hijo.</h2>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <section class="form-section" id="postular">
+    <div class="wrap">
+      <div class="form-head">
+        <div class="eyebrow">Postúlate</div>
+        <div class="h2">Cuéntanos su historia</div>
+        <p class="lead">Unas pocas familias entran. Si la de ustedes es una de ellas, te escribimos pronto.</p>
+      </div>
+
+      <div class="form-card">
+        <div id="configWarn" class="config-warn" style="display:none;">
+          ⚙️ Falta conectar el formulario. Pega la URL de tu app web de Apps Script en la variable <strong>APPS_SCRIPT_URL</strong> dentro del código.
+        </div>
+
+        <div id="formBody">
+          <div class="field">
+            <label>Nombre completo</label>
+            <input type="text" id="nombre" placeholder="Tu nombre">
+          </div>
+          <div class="field">
+            <label>Ciudad</label>
+            <input type="text" id="ciudad" placeholder="¿De dónde nos escribes?">
+          </div>
+          <div class="field">
+            <label>Tu Instagram</label>
+            <input type="text" id="instagram" placeholder="@tuusuario">
+          </div>
+          <div class="field">
+            <label>Tu WhatsApp <span class="hint">— por aquí te contactamos si te elegimos</span></label>
+            <input type="text" id="whatsapp" placeholder="Ej. 300 123 4567">
+          </div>
+          <div class="field">
+            <label>¿Qué edad tiene tu hijo o hija?</label>
+            <select id="edad">
+              <option value="">Selecciona una opción</option>
+              <option>Menos de 6 años</option>
+              <option>6 a 8 años</option>
+              <option>9 a 11 años</option>
+              <option>Más de 11 años</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>En una frase: ¿por qué prefieres esperar antes de darle un celular? <span class="hint">— escríbelo con tus palabras</span></label>
+            <textarea id="porque" placeholder="Para mí lo importante es…"></textarea>
+          </div>
+
+          <div class="field">
+            <label>Mándanos un video tuyo hablando a cámara <span class="hint">— el que tengas, sin producción</span></label>
+            <div class="uploader" id="uploader">
+              <div id="uploaderEmpty">
+                <div class="uploader-icon">🎬</div>
+                <div class="uploader-main">Toca para elegir un video</div>
+                <div class="uploader-sub">Un reel, un clip de tu galería… algo casual. Máx 1 min · hasta 45 MB</div>
+              </div>
+              <div id="uploaderFull" style="display:none;">
+                <div class="uploader-icon">✅</div>
+                <div class="uploader-file" id="fileName"></div>
+                <div class="uploader-sub">Toca para cambiarlo</div>
+              </div>
+            </div>
+            <input type="file" id="videoInput" accept="video/*">
+
+            <div class="video-guide">
+              <div class="video-guide-label">¿No tienes un video a la mano?</div>
+              <p>Grábate en modo selfie, con buena luz, y di algo así:</p>
+              <p class="video-guide-quote">"Hola, soy [tu nombre], mi hijo tiene [edad] años, y todavía no le doy celular porque…"</p>
+              <p>Y completas con lo que sientas. Nada de producción — así, natural como estás. 🙂</p>
+            </div>
+          </div>
+
+          <div class="consent">
+            <input type="checkbox" id="consent">
+            <label for="consent">Entiendo que, si me eligen, recibo el Kiper a cambio de 2 videos reales en un plazo de 15 días, y autorizo a Kiper a usar mi contenido en sus redes y anuncios.</label>
+          </div>
+
+          <div class="submit-wrap">
+            <button class="btn" id="submitBtn">Enviar mi postulación <span class="arrow">→</span></button>
+            <span class="form-msg" id="formMsg"></span>
+          </div>
+
+          <p class="wa-help" id="waHelp" style="display:none;">
+            ¿Tienes dudas o prefieres mandar tu video por WhatsApp?
+            <a id="waLink" href="#" target="_blank" rel="noopener">Escríbenos por aquí 💬</a>
+          </p>
+        </div>
+
+        <div id="thanks" class="thanks" style="display:none;">
+          <div class="heart">💛</div>
+          <h2>¡Listo, <span id="thanksName">familia</span>!</h2>
+          <p>Recibimos tu historia. Estamos escogiendo unas pocas familias y, si encajas, te escribimos por Instagram muy pronto.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <img src="https://cdn.shopify.com/s/files/1/0682/8110/6606/files/Logo_kiper_para_fondo_oscuro_-_Letra_blanca.png?v=1775568205" alt="Kiper">
+      <span class="tagline">Vínculo sin excesos · Familias Kiper</span>
+      <div class="f-right">
+        <a href="https://www.instagram.com/kiper.ai/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://kipertienda.com" target="_blank" rel="noopener">kipertienda.com</a>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  /* ============================================================
+     PEGA AQUÍ la URL de tu app web de Apps Script (termina en /exec)
+     ============================================================ */
+  const APPS_SCRIPT_URL = "";
+
+  /* WhatsApp ya conectado con el número de tu tienda. */
+  const WHATSAPP_NUMBER = "573102283652";
+
+  const $ = (id) => document.getElementById(id);
+  const MAX_BYTES = 45 * 1024 * 1024; // 45 MB
+  let videoFile = null;
+
+  if (!APPS_SCRIPT_URL) $("configWarn").style.display = "block";
+
+  if (WHATSAPP_NUMBER) {
+    const waMsg = encodeURIComponent("Hola, vengo de la convocatoria de Familias Kiper 🎬");
+    $("waLink").href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + waMsg;
+    $("waHelp").style.display = "block";
+  }
+
+  $("uploader").addEventListener("click", () => $("videoInput").click());
+  $("videoInput").addEventListener("change", (e) => {
+    const f = e.target.files[0];
+    if (!f) return;
+    if (f.size > MAX_BYTES) {
+      setMsg("Ese video pesa más de 45 MB. Graba uno más corto (máx ~1 min) y vuelve a intentarlo.", "err");
+      $("videoInput").value = "";
+      return;
+    }
+    videoFile = f;
+    $("fileName").textContent = f.name + "  ·  " + (f.size / 1048576).toFixed(1) + " MB";
+    $("uploaderEmpty").style.display = "none";
+    $("uploaderFull").style.display = "block";
+    $("uploader").classList.add("has-file");
+    setMsg("", "");
+  });
+
+  function setMsg(text, type) {
+    const el = $("formMsg");
+    el.textContent = text;
+    el.className = "form-msg" + (type ? " " + type : "");
+  }
+
+  function readAsBase64(file) {
+    return new Promise((res, rej) => {
+      const r = new FileReader();
+      r.onload = () => res(r.result.split(",")[1]);
+      r.onerror = () => rej(new Error("No se pudo leer el video"));
+      r.readAsDataURL(file);
+    });
+  }
+
+  $("submitBtn").addEventListener("click", async () => {
+    const nombre = $("nombre").value.trim();
+    const ciudad = $("ciudad").value.trim();
+    const instagram = $("instagram").value.trim();
+    const whatsapp = $("whatsapp").value.trim();
+    const edad = $("edad").value;
+    const porque = $("porque").value.trim();
+    const consent = $("consent").checked;
+
+    if (!nombre || !ciudad || !instagram || !whatsapp || !edad || !porque) return setMsg("Completa todos los campos antes de enviar.", "err");
+    if (!videoFile) return setMsg("Falta tu video — toca el recuadro para elegirlo.", "err");
+    if (!consent) return setMsg("Marca la casilla de autorización para continuar.", "err");
+    if (!APPS_SCRIPT_URL) return setMsg("El formulario aún no está conectado (falta la URL de Apps Script).", "err");
+
+    const btn = $("submitBtn");
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span>Enviando tu video…';
+    setMsg("Esto puede tardar unos segundos según tu conexión.", "");
+
+    try {
+      const fileData = await readAsBase64(videoFile);
+      const payload = { nombre, ciudad, instagram, whatsapp, edad, porque, consent,
+                        fileName: videoFile.name, mimeType: videoFile.type || "video/mp4", fileData };
+
+      const res = await fetch(APPS_SCRIPT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      if (!data.ok) throw new Error(data.error || "Error del servidor");
+
+      $("thanksName").textContent = nombre.split(" ")[0] || "familia";
+      $("formBody").style.display = "none";
+      $("thanks").style.display = "block";
+      $("thanks").scrollIntoView({ behavior: "smooth", block: "center" });
+    } catch (err) {
+      btn.disabled = false;
+      btn.innerHTML = 'Enviar mi postulación <span class="arrow">→</span>';
+      setMsg("No pudimos enviar tu postulación. Revisa tu conexión e inténtalo de nuevo.", "err");
+      console.error(err);
+    }
+  });
+</script>
+</body>
+</html>
